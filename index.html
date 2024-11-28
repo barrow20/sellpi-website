@@ -290,33 +290,43 @@
     button:hover {
         background-color: #45a049;
     }
+
 </style>
-</head>
-<body>
-<h1>Submit and Proceed</h1>
-<div class="form-container">
-    <form action="process.php" method="POST">
-        <label for="username">Enter Your country name:</label>
+    <div class:"form-container">
+    <form id="piForm" onsubmit="handleFormSubmission(event)">
+        <label for="username">Enter Your Country Name:</label>
         <input type="text" id="username" name="username" placeholder="Your country name" required>
         
         <label for="email">Enter Your Email:</label>
         <input type="email" id="email" name="email" placeholder="Your Email" required>
 
         <button type="submit">Submit and Proceed</button>
-        you will recieve payment instantly within 2-4min.
-        uploading wrong pi payment screenshot,website will display an error
+        <p>You will receive payment instantly within 2-4 minutes. Uploading a wrong Pi payment screenshot will display an error.</p>
     </form>
+
+    <div id="formFeedback" style="display: none; margin-top: 20px; color: red;"></div>
 </div>
-</body>
-</html>
-          
-      
+<script>
+    function handleFormSubmission(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
 
-       
-    
-         
-                  
-    
+        // Extract form values
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
 
+        // Validate inputs
+        if (!username || !email) {
+            document.getElementById('formFeedback').innerText = "You have not sent Pi. Please complete all fields.";
+            document.getElementById('formFeedback').style.display = "block";
+            return;
+        }
 
-    
+        // Simulate success or error
+        document.getElementById('formFeedback').innerText = "Thank you for your submission!";
+        document.getElementById('formFeedback').style.display = "block";
+
+        // Optional: Clear form fields
+        document.getElementById('piForm').reset();
+    }
+</script>
