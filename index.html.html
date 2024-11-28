@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELL PI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>"WELCOME" SELL YOUR PI @ MAD BUDDIES.COM</h1>
+    <p>Sell your Pi securely @ 1PI=2$</p>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        select, input, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #0f1452;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8b45a0;
+        }
+        #result, #walletInfo {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sell Your Pi</h1>
+    <div class="form-container">
+        <form id="piForm">
+            <label for="payment">Choose Payment Method:</label>
+            <select id="payment" required>
+                <option value="">--Select Payment Method--</option>
+                <option value="jazz">JAZZ</option>
+                <option value="easypaisa">EASYPAISA</option>
+                <option value="bank">BANK</option>
+                <option value="mpesa">MPESA</option>
+                <option value="binance">BINANCE</option>
+                <option value="paypal">PAYPAL</option>
+                <option value="metamask">METAMASK</option>
+                <option value="trustwallet">TRUSTWALLET</option>
+                <option value="googlepay">GOOGLEPAY</option>
+                <option value="okx">OKX</option>
+                <option value="opay">OPAY</option>
+            </select>
+
+            <div id="extraInput" style="display: none;">
+                <label id="extraInputLabel" for="extraValue"></label>
+                <input type="text" id="extraValue" placeholder="Enter required information">
+            </div>
+             <label for="payment details">enter account number or wallet address(machine will detect any address)</label>
+             <input type="text" id="account number or address" placeholder="enter account number or wallet address"
+            <label for="amount">Enter Amount of Pi(minimun of 15pi):</label>
+            <input type="number" id="amount" required min="15" placeholder="Enter Pi amount">
+
+        
+        </form>
+
+        <div id="result" style="display: none;">
+            <p><strong>Total Value:</strong> <span id="totalValue"></span></p>
+        </div>
+
+        <div id="walletInfo" style="display: none;">
+            <h3>Send Pi to:</h3>
+            <p id="walletAddress"></p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('piForm');
+        const paymentMethod = document.getElementById('payment');
+        const amountInput = document.getElementById('amount');
+        const totalValueElement = document.getElementById('totalValue');
+        const resultSection = document.getElementById('result');
+        const walletInfoSection = document.getElementById('walletInfo');
+        const walletAddressElement = document.getElementById('walletAddress');
+        const extraInputDiv = document.getElementById('extraInput');
+        const extraInputLabel = document.getElementById('extraInputLabel');
+        const extraValue = document.getElementById('extraValue');
+
+        // Wallet Addresses
+        const walletAddresses = {
+            jazz: "JazzCash Wallet Address: 123456789",
+            easypaisa: "EasyPaisa Wallet Address: 987654321",
+            bank: "Bank Account: 1234-5678-9012",
+            mpesa: "MPESA Wallet Address: 001122334455",
+            binance: "Binance Wallet Address: Binance12345",
+            paypal: "PayPal Email: paypal@example.com",
+            metamask: "Metamask Wallet: 0x123456789ABC",
+            trustwallet: "Trust Wallet: trust12345",
+            googlepay: "Google Pay: googlepay123",
+            okx: "OKX Wallet: okx12345",
+            opay: "OPay Wallet: opay12345",
+        };
+
+        // Update extra input based on payment method
+        paymentMethod.addEventListener('change', function () {
+            const selectedMethod = paymentMethod.value;
+
+            if (['jazz', 'easypaisa', 'bank', 'mpesa'].includes(selectedMethod)) {
+                extraInputLabel.textContent = 'Enter Account Number:';
+                extraValue.placeholder = 'Enter your account number';
+                extraInputDiv.style.display = 'block';
+            } else if (selectedMethod) {
+                extraInputLabel.textContent = 'Enter Wallet Address:';
+                extraValue.placeholder = 'Enter your wallet address';
+                extraInputDiv.style.display = 'block';
+            } else {
+                extraInputDiv.style.display = 'none';
+            }
+        });
+
+       
+
+            // Calculate total value (Amount × 2 USD per Pi)
+            const totalValue = amount * 2;
+            totalValueElement.textContent = $${totalValue.toFixed(2)};
+            resultSection.style.display = 'block';
+
+            // Display wallet address based on selected payment method
+            const walletAddress = walletAddresses[selectedMethod] || "No address available.";
+            walletAddressElement.textContent = walletAddress;
+            walletInfoSection.style.display = 'block';
+    
+    </script>
+</body>
+</html>
+     
+
+   
+        
+    
+    </script>
+</body>
+</html>
+         
+
+
+    
+    </style>
+
+    <div class="container">
+        <h1>Copy the address below and send pi:</h1>
+        <p class="walletaddress">GARJEC3EID6XDWX3FFDI45LG67PIDUHCZDNWZY7KA5D2RG5PVJE2MXI6</p>
+        <button onclick="copytoclipboard">GARJEC3EID6XDWX3FFDI45LG67PIDUHCZDNWZY7KA5D2RG5PVJE2MXI6</button>
+    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Copy and Paste File or Photo</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin: 20px;
+            }
+            .upload-area {
+                width: 100%;
+                max-width: 400px;
+                margin: 20px auto;
+                padding: 20px;
+                border: 2px dashed #ccc;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+                cursor: pointer;
+            }
+            .upload-area:hover {
+                border-color: #4CAF50;
+            }
+            img {
+                margin-top: 20px;
+                max-width: 100%;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Paste here photo or file of pi payment</h1>
+        <p>Drag and drop, paste, or click to upload a file or photo.</p>
+        <div class="upload-area" id="uploadArea">
+            <p>Paste a file or photo here, or click to upload.</p>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        </div>
+        <img id="previewImage" alt="Preview" style="display:none;">
+    
+        <script>
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const previewImage = document.getElementById('previewImage');
+    
+            // Open file dialog when upload area is clicked
+            uploadArea.addEventListener('click', () => fileInput.click());
+    
+            // Handle file input change
+            fileInput.addEventListener('change', handleFile);
+    
+            // Handle file paste
+            uploadArea.addEventListener('paste', (event) => {
+                event.preventDefault();
+                const file = event.clipboardData.files[0];
+                if (file) previewFile(file);
+            });
+    
+            // Function to preview file
+            function handleFile(event) {
+                const file = event.target.files[0];
+                if (file) previewFile(file);
+            }
+    
+            function previewFile(file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        previewImage.src = reader.result;
+                        previewImage.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Please upload an image file.');
+                }
+            }
+        </script>
+    </body>
+    </html>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit and Proceed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Submit and Proceed</h1>
+    <div class="form-container">
+        <form action="process.php" method="POST">
+            <label for="username">Enter Your country name:</label>
+            <input type="text" id="username" name="username" placeholder="Your country name" required>
+            
+            <label for="email">Enter Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <button type="submit">Submit and Proceed</button>
+            processing your payment will take a maximum of 5min
+        </form>
+    </div>
+</body>
+</html>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
