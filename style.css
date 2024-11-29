@@ -1,15 +1,156 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
-}
-form {
-    display: inline-block;
-    text-align: left;
-}
-#walletInfo {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    display: none;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Pi</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1, p {
+            margin: 10px 0;
+        }
+
+        /* Container Styling */
+        .form-container {
+            background: #ffffff;
+            color: #333;
+            max-width: 400px;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #1e3c72;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Form Elements */
+        label {
+            font-size: 14px;
+            margin: 10px 0 5px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        input:focus {
+            border-color: #1e3c72;
+        }
+
+        button {
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #2a5298, #1e3c72);
+        }
+
+        /* Feedback Section */
+        #formFeedback {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #1e3c72;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success {
+            color: #28a745;
+            background-color: #e8f5e9;
+        }
+
+        .error {
+            color: #dc3545;
+            background-color: #f8d7da;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Sell Your Pi</h1>
+        <p>Sell your Pi securely. Instant payments within 2-4 minutes.</p>
+        
+        <form id="piForm" onsubmit="handleFormSubmission(event)">
+            <label for="username">Enter Your Country Name:</label>
+            <input type="text" id="username" name="username" placeholder="Your country name" required>
+            
+            <label for="email">Enter Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <button type="submit">Submit and Proceed</button>
+        </form>
+
+        <div id="formFeedback" class=""></div>
+    </div>
+
+    <script>
+        function handleFormSubmission(event) {
+            // Prevent form submission
+            event.preventDefault();
+
+            // Get form values
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const feedbackElement = document.getElementById('formFeedback');
+
+            // Clear feedback element and validate inputs
+            feedbackElement.style.display = "block";
+            if (!username || !email) {
+                feedbackElement.innerText = "You have not sent Pi. Please fill out all fields.";
+                feedbackElement.className = "error";
+                return;
+            }
+
+            // Success message
+            feedbackElement.innerText = "Thank you for your submission! You will receive payment shortly.";
+            feedbackElement.className = "success";
+
+            // Optionally clear the form
+            document.getElementById('piForm').reset();
+        }
+    </script>
+</body>
+</html>
