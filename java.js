@@ -1,24 +1,26 @@
-document.getElementById('piForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+<script>
+    function handleFormSubmission(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
 
-    const paymentMethod = document.getElementById('payment').value;
-    const amount = document.getElementById('amount').value;
+        // Extract form values
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
 
-    let walletAddress;
-    switch (paymentMethod) {
-        case 'btc':
-            walletAddress = 'Your-Bitcoin-Wallet-Address';
-            break;
-        case 'eth':
-            walletAddress = 'Your-Ethereum-Wallet-Address';
-            break;
-        case 'usdt':
-            walletAddress = 'Your-USDT-Wallet-Address';
-            break;
-        default:
-            walletAddress = 'Unknown';
+        // Validate inputs
+        if (!username || !email) {
+            document.getElementById('formFeedback').innerText = "You have not sent Pi. Please complete all fields.";
+            document.getElementById('formFeedback').style.display = "block";
+            return;
+        }
+
+        // Simulate success or error
+        document.getElementById('formFeedback').innerText = "Thank you for your submission!";
+        document.getElementById('formFeedback').style.display = "block";
+
+        // Optional: Clear form fields
+        document.getElementById('piForm').reset();
     }
+</script>
 
-    document.getElementById('walletAddress').textContent = walletAddress;
-    document.getElementById('walletInfo').style.display = 'block';
-});
+  
